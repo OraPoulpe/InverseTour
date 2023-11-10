@@ -1,19 +1,16 @@
-<h1 align="center">Привет, мы команда Inverse <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
+# Frontend
 
-<br/>
+## Разработчики
 
-<h2 align='center'> Использованные технологии </h2>
+- [Дмитрий Степанов](https://t.me/mack1ch). Junior frontend developer
+- [Сергей Сазонов](https://t.me/OraPoulpe). Junior frontend developer
 
-<br/>
+## Технологии
 
-### Сайт разработан с помощью фреимворка [NextJS (v.13)](https://nextjs.org/)
-
-### Собран с помощью ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
-
-### Для стилей использовали **SCSS** <img src='./src/img/readme/Sass.jpg' height=28px/>
-
-<h2 align='center'> Архитектура </h2>
-
-<br/>
-
-### В своих разработках мы используем архитектуру (Features Slice Design)[https://feature-sliced.design/]
+| Имя                               | Почему используем                                                                                                                     | Описание                                                          | Документация                                                                                                                                                                            
+| :-------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- | 
+| `NextJS`                          | Встроенный SSR для повышения производительности и CEO, App Routing, встроенная оптимизация                                            | React Framework                                                   | [nextjs.org](https://nextjs.org/)                                                                    |                                     
+| `SCSS`                            | Возможность использование дополнительных констант и примесей CSS, работа с вложенными селекторами, построение таблиц и сетей          | Препроцессор для CSS                                              | [scss.ru](https://sass-scss.ru/)                                                                     | 
+| `Module CSS`                      | Изоляция стилей: стили одного компонента не влияют на другие компоненты                                                               | CSS модули                                                        | [github.com/css-modules](https://github.com/css-modules/css-modules)                                 |
+| `Redux`                           | Управление состоянием, повышение производительности, удобная отладка                                                                  | State manager                                                     | [redux.js.org](https://redux.js.org/)                                                                | 
+| `Feature-Sliced design`            | Сохраняется баланс между DRY и локальной кастомизацией, каждый модуль можно независимо модифицировать / переписать без сайд-эффектов  | Архитектура                                                       | [feature-sliced.design](https://feature-sliced.design/ru/)                       | 
