@@ -9,19 +9,15 @@ import { UploadManyImages } from '@/widgets/uploadManyImages/ui/ui';
 import { FC, useState } from 'react';
 
 export const NewEventForm: FC = () => {
-  const [isActiveInfo, setIsActiveInfo] = useState<Boolean>(true);
-
+  const [isActiveInfo, setIsActiveInfo] = useState<boolean>(true);
+  console.log(isActiveInfo);
   // const [eventData, setEventData] = useState<EventData> ({})
 
   return (
     <>
       <ProgressNavBar title={'Создание мероприятия'} />{' '}
       <div className="px-14">
-        {isActiveInfo ? (
-          <EventInfoForm setIsActiveInfo={() => setIsActiveInfo} />
-        ) : (
-          <EventImageForm />
-        )}
+        {isActiveInfo ? <EventInfoForm setIsActiveInfo={setIsActiveInfo} /> : <EventImageForm />}
       </div>
     </>
   );

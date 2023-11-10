@@ -11,12 +11,11 @@ export const UploadManyImages = () => {
   };
 
   const handlerDel = (id: number) => {
-    // console.log(id);
     setFiles([...files.filter((file, index) => id !== index)]);
   };
 
   return (
-    <div className="w-77">
+    <div style={{ width: '100%' }} className="w-77">
       <div className="mb-2">
         <AddManyFileButton
           title="Фотографии мероприятия"
@@ -25,7 +24,7 @@ export const UploadManyImages = () => {
           onChange={onImageChange}
         />
       </div>
-      <div className="flex flex-wrap">
+      <div style={{ width: '100%' }} className="flex flex-wrap">
         {files.map((image, index) => (
           <UploadImage
             key={index}

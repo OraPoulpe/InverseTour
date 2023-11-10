@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, FC, useEffect } from 'react';
-import { Input, ThemeContext, ThemeFactory, Textarea, Select } from '@skbkontur/react-ui';
+import { Input, ThemeContext, ThemeFactory, Textarea, Select, Button } from '@skbkontur/react-ui';
 import styles from './ui.module.scss';
 import { Category, Platform } from '@/shared/interfaces/event';
 import { Get } from '../model';
@@ -41,13 +41,11 @@ export const EventInfoForm: FC<EventInfoFormProps> = ({ setIsActiveInfo }) => {
       [name]: value,
     });
   };
-
-  const handleSelectChange = (name: string, value: string) => {
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  const handleButtonClick = () => {
+    console.log(1);
+    setIsActiveInfo(false);
   };
+
   useEffect(() => {
     getSelectInfo();
   }, []);
@@ -55,81 +53,86 @@ export const EventInfoForm: FC<EventInfoFormProps> = ({ setIsActiveInfo }) => {
     <>
       <ThemeContext.Provider value={myTheme}>
         <div className={styles.layout}>
-          <section className={styles.form}>
-            <Input
-              onChange={(e) => handleInputChange('title', e.target.value)}
-              value={formData.title}
-              width={'100%'}
-              placeholder="Название"
-              size="medium"
-            />
-            <Textarea
-              onChange={(e) => handleInputChange('description', e.target.value)}
-              value={formData.description}
-              width={'100%'}
-              placeholder="Описание"
-              autoResize
-              size="medium"
-            />
-            <Input
-              onChange={(e) => handleInputChange('date', e.target.value)}
-              value={formData.date}
-              width={'100%'}
-              type="date"
-              size="medium"
-            />
-            <Input
-              onChange={(e) => handleInputChange('time', e.target.value)}
-              value={formData.time}
-              width={'100%'}
-              type="time"
-              size="medium"
-            />
-            <Select
-              placeholder="Оплата по “Пушкинской”"
-              width={'100%'}
-              items={selectPushkinItem}
-              size="medium"
-            />
-          </section>
-          <section className={styles.form}>
-            <Select
-              width={'100%'}
-              items={platform.map((item) => item.name)}
-              search
-              placeholder="Площадка"
-              size="medium"
-            />
-            <Select
-              width={'100%'}
-              placeholder="Возрастные ограничения"
-              items={agePermissions}
-              size="medium"
-            />
-            <Select
-              width={'100%'}
-              items={categories.map((item) => item.name)}
-              placeholder="Категория"
-              size="medium"
-            />
-            <Select width={'100%'} items={permissions} placeholder="Условия" size="medium" />
-            <Input
-              onChange={(e) => handleInputChange('ticketCount', e.target.value)}
-              value={formData.ticketCount}
-              width={'100%'}
-              placeholder="Количество билетов"
-              type="number"
-              size="medium"
-            />
-            <Input
-              onChange={(e) => handleInputChange('ticketPrice', e.target.value)}
-              value={formData.ticketPrice}
-              width={'100%'}
-              placeholder="Цена билета в рублях"
-              type="number"
-              size="medium"
-            />
-          </section>
+          <div className={styles.formLayout}>
+            <section className={styles.form}>
+              <Input
+                onChange={(e) => handleInputChange('title', e.target.value)}
+                value={formData.title}
+                width={'100%'}
+                placeholder="Название"
+                size="medium"
+              />
+              <Textarea
+                onChange={(e) => handleInputChange('description', e.target.value)}
+                value={formData.description}
+                width={'100%'}
+                placeholder="Описание"
+                autoResize
+                size="medium"
+              />
+              <Input
+                onChange={(e) => handleInputChange('date', e.target.value)}
+                value={formData.date}
+                width={'100%'}
+                type="date"
+                size="medium"
+              />
+              <Input
+                onChange={(e) => handleInputChange('time', e.target.value)}
+                value={formData.time}
+                width={'100%'}
+                type="time"
+                size="medium"
+              />
+              <Select
+                placeholder="Оплата по “Пушкинской”"
+                width={'100%'}
+                items={selectPushkinItem}
+                size="medium"
+              />
+            </section>
+            <section className={styles.form}>
+              <Select
+                width={'100%'}
+                items={platform.map((item) => item.name)}
+                search
+                placeholder="Площадка"
+                size="medium"
+              />
+              <Select
+                width={'100%'}
+                placeholder="Возрастные ограничения"
+                items={agePermissions}
+                size="medium"
+              />
+              <Select
+                width={'100%'}
+                items={categories.map((item) => item.name)}
+                placeholder="Категория"
+                size="medium"
+              />
+              <Select width={'100%'} items={permissions} placeholder="Условия" size="medium" />
+              <Input
+                onChange={(e) => handleInputChange('ticketCount', e.target.value)}
+                value={formData.ticketCount}
+                width={'100%'}
+                placeholder="Количество билетов"
+                type="number"
+                size="medium"
+              />
+              <Input
+                onChange={(e) => handleInputChange('ticketPrice', e.target.value)}
+                value={formData.ticketPrice}
+                width={'100%'}
+                placeholder="Цена билета в рублях"
+                type="number"
+                size="medium"
+              />
+            </section>
+          </div>
+          <Button onClick={handleButtonClick} use="default" width={'100%'} size="large">
+            Далее
+          </Button>
         </div>
       </ThemeContext.Provider>
     </>
@@ -138,12 +141,6 @@ export const EventInfoForm: FC<EventInfoFormProps> = ({ setIsActiveInfo }) => {
 const myTheme = ThemeFactory.create({
   borderColorFocus: '#7AAC5C',
   btnBorderRadiusLarge: '8px',
-  btnPrimaryBg: '#7AAC5C',
-  btnPrimaryHoverBg: '#90C86F',
-  btnPrimaryActiveBg: '#7AAC5C',
-  btnPrimaryTextColor: '#fff',
-  btnDisabledBg: '#FF9A4299',
-  btnDisabledTextColor: '#fff',
   menuItemHoverBg: '#90C86F',
   inputBorderRadiusMedium: '4px',
   textareaBorderRadius: '4px',

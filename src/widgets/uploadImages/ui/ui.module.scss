@@ -1,0 +1,27 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 100%;
+  margin-bottom: 32px;
+  .noneFiles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+    gap: 16px;
+
+    height: 320px;
+    border-radius: 16px;
+    background: #f8f8fa;
+
+    .text {
+      font-family: Mont;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 800;
+    }
+  }
+}
