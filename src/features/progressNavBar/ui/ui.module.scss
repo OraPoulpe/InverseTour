@@ -1,0 +1,27 @@
+.icon {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 28px;
+  height: 28px;
+  transition: 0.2s;
+}
+
+.line {
+  width: 34px;
+  height: 2px;
+  transform: rotate(-90deg);
+  border-radius: 3px;
+  background: #f4f4f4;
+}
+
+.layout {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 60px;
+  box-shadow: 0px 10px 20px 0px rgba(92, 89, 89, 0.04);
+
+  margin-top: -32px;
+}
