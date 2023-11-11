@@ -15,7 +15,14 @@ export const EventInfoForm: FC<EventInfoFormProps> = ({ setIsActiveInfo }) => {
   const agePermissions = ['0+', '6+', '12+', '16+', '18+'];
   const permissions = ['По билетам', 'Свободный вход'];
   const [categories, setCategories] = useState<Category[]>([]);
-  const [formData, setFormData] = useState({
+
+  const [errorText, setErrorText] = useState(false);
+
+  interface IFormData {
+    [key: string]: string;
+  }
+
+  const [formData, setFormData] = useState<IFormData>({
     title: '',
     description: '',
     date: '',
@@ -42,8 +49,16 @@ export const EventInfoForm: FC<EventInfoFormProps> = ({ setIsActiveInfo }) => {
     });
   };
   const handleButtonClick = () => {
-    console.log(1);
-    setIsActiveInfo(false);
+    console.log(formData);
+    const isFormDataValid = () => {
+      for (const key in formData) {
+        if (formData[key] === '') {
+          return false;
+        }
+      }
+      return true;
+    };
+    isFormDataValid() ? setIsActiveInfo(false) : setErrorText(true);
   };
 
   useEffect(() => {
@@ -133,6 +148,7 @@ export const EventInfoForm: FC<EventInfoFormProps> = ({ setIsActiveInfo }) => {
           <Button onClick={handleButtonClick} use="default" width={'100%'} size="large">
             Далее
           </Button>
+          {errorText && <h1 className="text-red-400">Заполните поля полностью</h1>}
         </div>
       </ThemeContext.Provider>
     </>

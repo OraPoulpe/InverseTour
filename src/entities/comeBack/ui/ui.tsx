@@ -7,12 +7,14 @@ import { useRouter } from 'next/navigation';
 
 interface ComeBackProps {
   title: string;
+  setIsActiveInfo: (bl: boolean) => void;
+
 }
 
-export const ComeBack: FC<ComeBackProps> = ({ title }) => {
+export const ComeBack: FC<ComeBackProps> = ({ title, setIsActiveInfo }) => {
   const router = useRouter();
   return (
-    <div onClick={() => router.back()} className="flex items-center">
+    <div onClick={() => setIsActiveInfo(true)} className="flex items-center">
       <i
         className={styles.icon}
         style={{ backgroundImage: `url(${arrowLeftIcon.src})` }}

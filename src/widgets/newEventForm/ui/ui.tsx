@@ -15,7 +15,7 @@ export const NewEventForm: FC = () => {
 
   return (
     <>
-      <ProgressNavBar title={'Создание мероприятия'} />{' '}
+      <ProgressNavBar act={setIsActiveInfo} title={'Создание мероприятия'} />{' '}
       <div className="px-14">
         {isActiveInfo ? <EventInfoForm setIsActiveInfo={setIsActiveInfo} /> : <EventImageForm />}
       </div>

@@ -32,7 +32,7 @@ export const IconButton: FC<IconButtonProps> = ({
 
     cursor: ${isActive ? 'pointer' : 'not-allowed'};
     border-radius: 15px;
-    border-radius: ${rounded ? '100px' : '15px'}
+    border-radius: ${rounded ? '100px' : '15px'};
 
     &:hover {
       filter: ${isActive ? 'brightness(90%)' : 'brightness(100%)'};

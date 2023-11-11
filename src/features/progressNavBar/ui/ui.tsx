@@ -7,12 +7,13 @@ import { ComeBack } from '@/entities/comeBack';
 
 interface ProgressNavBar {
   title: string;
+  act: (bl: boolean) => void;
 }
 
-export const ProgressNavBar: FC<ProgressNavBar> = ({ title }) => {
+export const ProgressNavBar: FC<ProgressNavBar> = ({ title, act }) => {
   return (
     <div className={styles.layout}>
-      <ComeBack title={'Создание мероприятия'} />
+      <ComeBack setIsActiveInfo={act} title={'Создание мероприятия'} />
       <div className={styles.line} />
       <div>
         <div>
